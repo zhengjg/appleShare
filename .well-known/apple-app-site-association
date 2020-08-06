@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "N9L95RBV4J.com.xsdzq.iphone",
+        "paths":[ "/*" ]
+      },
+	  {
+        "appID": "N9L95RBV4J.com.xsdzq.test",
+        "paths":[ "/*" ]
+      },
+	  {
+        "appID": "7RVYUT5BH6.com.hundsun.XSDZQHsBrowserII",
+        "paths":[ "/*" ]
+      }
+    ]
+  }
+}

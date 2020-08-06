@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新时代证券</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="app下载，新时代证券">
+    <meta name="author" content="xsdzq">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <style type="text/css">
+        html,body,div,img{
+            margin:0;
+            padding: 0;
+        }
+        #app {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+        #app .bg {
+            width: 100%;
+            height: auto;
+            
+        }
+        .action-wrapper {
+            position: absolute;
+            top: 68%;
+            left: 10%
+        }
+        .action-wrapper .download-img {
+            width: 56%;
+
+        }
+        .margin-top-6 {
+            margin-top: 6px;
+        }
+
+        a{
+            border:0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img class="bg" src="./images/bg.png" />
+        <div class="action-wrapper">
+            <div>
+                <a id="apple" href="https://itunes.apple.com/cn/app/fu-gui-zhang-yiv/id684674230?mt=8">
+                    <img  class="download-img" src="./images/ios.png">
+                </a>
+            </div>  
+            <div>
+                <a id="android" href="http://180.153.125.162/mobile/XSDZQV60.apk">
+                    <img class="download-img margin-top-6" src="./images/android.png">
+                </a>
+            </div> 
+        </div>
+        <img id="remindPic" src="./images/ieopen.png" style="position: absolute; top: 0; right: 0px; width: 50%; visibility: hidden;">
+        <!--
+        <div align="center">
+            <img src="./images/2_01.png" width="100%">
+        </div>
+        <div align="center" style="margin-top: -6px;">
+             <a id="apple" href="https://itunes.apple.com/cn/app/fu-gui-zhang-yiv/id684674230?mt=8"><img src="./images/2_02.png" width="100%" target="_blank"></a>
+
+        </div>  
+        <div align="center">
+             <a id="android" href="http://180.153.125.162/mobile/XSDZQV60.apk"><img src="./images/2_03.png" width="100%"></a>
+        </div>  -->
+    </div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript">
+        //判断是不是微信浏览器打开
+        showMask();
+        function showMask(){                    
+            var ua = window.navigator.userAgent.toLowerCase(); 
+            //如果是微信浏览器打开，提示在其他浏览器打开，并将安卓下载按钮链接改为#
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){ 
+                document.getElementById("remindPic").style.visibility='visible';
+                document.getElementById("android").href = "#";
+            }else{ 
+                document.getElementById("remindPic").style.visibility='hidden';
+            }   
+        }    
+        
+       function doDownLoad(id){
+            if (/msie/i.test(navigator.userAgent)){ //ie brower   
+                document.getElementById(id).click();  
+            }
+            else{
+                var e = document.createEvent('MouseEvent');      
+                e.initEvent('click', false, false);      
+                setTimeout(document.getElementById(id).dispatchEvent(e),2000);      
+            }  
+         }
+         
+        function download(){
+            //showMask();
+            var u = navigator.userAgent, app = navigator.appVersion;        
+            var versions = {//移动终端浏览器版本信息 
+                  trident: u.indexOf('Trident') > -1, //IE内核
+                  presto: u.indexOf('Presto') > -1, //opera内核
+                  webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                  gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                  mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                  ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                  android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                  iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                  iPad: u.indexOf('iPad') > -1, //是否iPad
+                  webApp: u.indexOf('Safari') == -1 ,//是否web应该程序，没有头部与底部
+                  samsung:u.indexOf('SAMSUNG') > -1 || u.indexOf('SM-') > -1,
+                  lenovo:u.indexOf('lenovo') > -1 || u.indexOf('Lenovo') > -1,
+                  honor:u.indexOf('honor') > -1 || u.indexOf('Honor') > -1,
+                  nexus:u.indexOf('nexus') > -1 || u.indexOf('Nexus') > -1
+              };
+                var language = (navigator.browserLanguage || navigator.language).toLowerCase();
+            
+            if (versions.ios || versions.iPhone || versions.iPad) {
+                
+                if(app.indexOf("7_1")>-1){
+                    //ios7.1以上版本
+                    window.location="https://itunes.apple.com/cn/app/fu-gui-zhang-yiv/id684674230?mt=8";
+                }else{
+                    window.location="https://itunes.apple.com/cn/app/fu-gui-zhang-yiv/id684674230?mt=8";
+                }
+            }
+            else {
+                doDownLoad('android');
+            }
+        }
+   </script>
+    <script type="text/javascript">
+        //run();
+        var timeout;
+        function isIOS(){
+            return /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent);
+        }
+        function isAndroid(){
+             return userAgent.indexOf('Android') > -1 || userAgent.indexOf('Adr') > -1; //android终端
+        }
+        function run(){
+            if(isIOS()){
+                window.location="https://itunes.apple.com/cn/app/fu-gui-zhang-yiv/id684674230?mt=8";
+                //window.location="http://cp.xsdzq.cn/wx/index.html";
+            }
+        }
+        function open_iOS_App() {
+            if (isWeiXin()) {
+                open_App();
+            }else{
+                open_App();
+                timeout = setTimeout('open_itunes()', 3000);
+            };
+        }
+
+        function open_Android_App() {
+            if (isWeiXin()) {
+                open_android_weixin();
+            }else{
+                open_App_Android();
+            };
+        }
+        
+        function open_android_weixin() {
+           var acti = document.getElementById("acti").value;
+           var linkUrl = "xxxxxxxxxxxxx://utils?action=sendIntent¶ms=" + acti;
+           var yingyongbaoUrl = "http://a.app.qq.com/o/simple?pkgname=com.xxxx.xxxxx&android_schema=" 
+            + encodeURI(linkUrl);
+           window.location = yingyongbaoUrl; 
+        }
+
+        function open_App() {
+            var ver = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);  
+            ver = parseInt(ver[1], 10);  
+            if(ver<9)  {  
+                if (isWeiXin()) {
+                    open_weixin_App();
+                }else{
+                    open_itunes();
+                }
+            } else{
+                    var activity = document.getElementById("acti").value;  
+                    document.getElementById("aaa").href = "https://joeychang.me/s.html?params="+ encodeURI(activity);
+                    //  alert(document.getElementById("aaa").href);
+                    // alert(activity);
+                    document.getElementById("aaa").click();
+            } 
+        }
+
+        function open_App_Android() {
+            var acti = document.getElementById("acti").value;
+            window.location = "intent://xxxxxxxxx?params="+ acti +"#Intent;package=com.xxxx.xxxxx;scheme=xxxxxxx;launchFlags=268435456;end;";    
+        }
+        function open_itunes() {/* 打开app store */
+            window.location="http://itunes.apple.com/cn/app/idxxxxxxxx"; 
+        }
+                function open_weixin_App() {/* 打开腾讯应用宝 间接跳转 */
+                var acti = document.getElementById("acti").value;
+            window.location="http://a.app.qq.com/o/simple.jsp?pkgname=com.xxxx.xxxxx&activity=" + acti; 
+        }
+
+        /*
+            判断是否是微信浏览器
+        */
+        function isWeiXin(){
+            var ua = window.navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function linktoApp() {
+            var queryStr = decodeURI(window.location.search.substr(1));
+            var ua = navigator.userAgent.toLowerCase(); 
+            if (queryStr.indexOf("}") >= 0 && queryStr.indexOf("{") >= 0) {
+                  var activity = queryStr.substring(queryStr.indexOf("{"), queryStr.lastIndexOf("}") + 1);
+                  document.getElementById("acti").value = activity; 
+                 if (/iphone|ipad|ipod/.test(ua)) {
+             // IOS
+             } else if (/android/.test(ua)) {
+            // Android
+                    open_Android_App();
+             } else {
+                    // 其他浏览器
+                    window.location="http://a.app.qq.com/o/simple.jsp?pkgname=com.xxxxxxx.xxxxxxxx";
+                 }
+             } else {
+                  document.getElementById("acti").value = "参数格式错误"; 
+             }        
+        }
+    </script>
+</body>
+</html>
